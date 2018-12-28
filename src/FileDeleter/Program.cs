@@ -14,6 +14,7 @@ namespace FileDeleter
             string txtFilePath = Path.Combine(Directory.GetCurrentDirectory(), "arquivos_para_excluir.txt");
             Console.WriteLine("Caminho completo da pasta 'INFRA V1.0.0':");
 
+            Console.InputEncoding = Encoding.Unicode;
             string applicationPath = Console.ReadLine();
             var lines = File.ReadLines(txtFilePath);
             foreach (string line in lines)
@@ -21,7 +22,7 @@ namespace FileDeleter
                 string fileToExcludePath = applicationPath + line;
                 if (File.Exists(fileToExcludePath))
                 {
-                    File.Delete(applicationPath + line);
+                    File.Delete(fileToExcludePath);
                 }
             }
         }
