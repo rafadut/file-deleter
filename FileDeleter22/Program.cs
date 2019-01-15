@@ -1,21 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace FileDeleter
+namespace FileDeleter22
 {
-    public class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
+            var defaultColor = Console.ForegroundColor;
             string txtFilePath = Path.Combine(Directory.GetCurrentDirectory(), "arquivos_para_excluir.txt");
             Console.WriteLine("Caminho completo da pasta 'INFRA V1.0.0':");
 
             Console.InputEncoding = Encoding.Unicode;
             string applicationPath = Console.ReadLine();
+
+            int count = 0;
+
             var lines = File.ReadLines(txtFilePath);
             foreach (string line in lines)
             {
@@ -23,8 +24,17 @@ namespace FileDeleter
                 if (File.Exists(fileToExcludePath))
                 {
                     File.Delete(fileToExcludePath);
+                    count++;
                 }
             }
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Processamento concluído");
+            sb.AppendLine("Quantidade de arquivos apagados: " + count);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(sb.ToString());
+            Console.ForegroundColor = defaultColor;
+            Environment.Exit(0);
         }
     }
 }
