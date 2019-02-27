@@ -41,7 +41,6 @@
 \Imagem\Layout\aplicar.gif
 \Imagem\Layout\aprovar.gif
 \Imagem\Layout\aprovar_dis.gif
-\Imagem\Layout\AssociacaoCliItem.gif
 \Imagem\Layout\AssociacaoCliItem_dis.gif
 \Imagem\Layout\atualizar.gif
 \Imagem\Layout\atualizar_dis.gif
